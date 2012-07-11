@@ -33,3 +33,7 @@ if(is_admin())
 {
     require_once(CD_APPP_PATH . 'inc/reading-settings.php');
 }
+else
+{
+    require_once(CD_APPP_PATH . 'inc/front.php');
+}
