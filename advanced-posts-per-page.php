@@ -31,7 +31,7 @@ define('CD_APPP_PATH', plugin_dir_path(__FILE__));
 require_once(CD_APPP_PATH . 'inc/base.php');
 if(is_admin())
 {
-    require_once(CD_APPP_PATH . 'inc/reading-settings.php');
+    require_once(CD_APPP_PATH . 'inc/settings.php');
 }
 else
 {
