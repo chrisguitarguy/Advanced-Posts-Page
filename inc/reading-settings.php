@@ -94,7 +94,22 @@ class CD_APPP_Admin_Page extends CD_APPP_Base
      */
     public static function cleaner($in)
     {
-        // @TODO
+        $fields = array_merge(
+            self::archives(),
+            self::post_types(),
+            self::taxonomies()
+        );
+
+        $out = array();
+        foreach($fields as $key => $l)
+        {
+            $out[$key] = 0;
+            if(isset($in[$key]))
+            {
+                $out[$key] = '-1' == $in[$key] ? -1 : absint($in[$key]);
+            }
+        }
+        return $out;
     }
 
     /**
@@ -109,9 +124,9 @@ class CD_APPP_Admin_Page extends CD_APPP_Base
         if(!$key)
             return; // bail if there's no key
         printf(
-            '<input type="number" step="1" min="1" value="%1$s" '. 
+            '<input type="number" step="1" min="-1" value="%1$s" '. 
             'id="%2$s" name="%2$s" class="small-text" />',
-            absint(self::opt($key)),
+            intval(self::opt($key)),
             self::prefix_opt($key)
         );
     }

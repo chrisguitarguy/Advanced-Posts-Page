@@ -101,7 +101,7 @@ class CD_APPP_Base
         ), 'objects');
 
         if(!$types)
-            return false;
+            return array();
 
         $rv = array();
         foreach($types as $n => $t)
@@ -124,7 +124,7 @@ class CD_APPP_Base
             'public'  => true
         ), 'objects');
         if(!$taxes)
-            return false;
+            return array();
 
         $rv = array();
         foreach($taxes as $n => $t)
