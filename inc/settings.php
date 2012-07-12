@@ -139,7 +139,10 @@ class CD_APPP_Admin_Page extends CD_APPP_Base
      */
     public static function default_cb()
     {
-        // @TODO
+        esc_html_e(
+            'Posts per page on date archives, author archives, and search pages',
+            'cdappp'
+        );
     }
 
     /**
@@ -150,8 +153,7 @@ class CD_APPP_Admin_Page extends CD_APPP_Base
      */
     public static function type_cb()
     {
-        // @TODO
-
+        esc_html_e('Posts per page on post type archives', 'cdappp');
     }
 
     /**
@@ -162,8 +164,7 @@ class CD_APPP_Admin_Page extends CD_APPP_Base
      */
     public static function tax_cb()
     {
-        // @TODO
-
+        esc_html_e('Posts per page on taxonomy archives', 'cdappp');
     }
 
     /**

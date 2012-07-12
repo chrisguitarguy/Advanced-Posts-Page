@@ -57,36 +57,35 @@ class CD_APPP_Front extends CD_APPP_Base
 
     protected static function get_per_page()
     {
-        $rv = self::opt('archives', null);
         $obj = get_queried_object();
-
+        $rv = 0;
         if(is_day())
         {
-            $rv = self::opt('date_day', null);
+            $rv = self::opt('date_day');
         }
         elseif(is_month())
         {
-            $rv = self::opt('date_month', null);
+            $rv = self::opt('date_month');
         }
         elseif(is_year())
         {
-            $rv = self::opt('date_year', null);
+            $rv = self::opt('date_year');
         }
         elseif(is_author())
         {
-            $rv = self::opt('author', null);
+            $rv = self::opt('author');
         }
         elseif(is_search())
         {
-            $rv = self::opt('search', null);
+            $rv = self::opt('search');
         }
         elseif(is_post_type_archive())
         {
-            $rv = self::opt(self::prefix_pt($obj->name), null);
+            $rv = self::opt(self::prefix_pt($obj->name));
         }
         elseif(is_category() || is_tag() || is_tax())
         {
-            $rv = self::opt(self::prefix_tax($obj->taxonomy), null);
+            $rv = self::opt(self::prefix_tax($obj->taxonomy));
         }
         return $rv;
     }

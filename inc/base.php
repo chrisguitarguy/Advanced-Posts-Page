@@ -144,7 +144,6 @@ class CD_APPP_Base
     protected static function archives()
     {
         $rv = array(
-            'archives'    => __('Default Archive Posts per Page', 'cdappp'),
             'date_year'   => __('Yearly Archives', 'cdappp'),
             'date_month'  => __('Monthly Archives', 'cdappp'),
             'date_day'    => __('Daily Archives', 'cdappp'),
