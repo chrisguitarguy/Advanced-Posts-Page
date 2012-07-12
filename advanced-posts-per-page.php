@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Advanced Posts/Page
-Plugin URI: https://github.com/chrisguitarguy/Advanced-Post-Page
+Plugin URI: https://github.com/chrisguitarguy/Advanced-Posts-Page
 Description: Set how many posts are each page of all your WordPress archives
 Version: 1.0
 Text Domain: cdappp
