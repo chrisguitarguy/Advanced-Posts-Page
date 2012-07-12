@@ -39,8 +39,8 @@ class CD_APPP_Front extends CD_APPP_Base
      */
     public static function query($q)
     {
-        if(!$q->is_main_query() || !is_archive())
-            return; // bail if this isn't the main query or an archive page
+        if(!$q->is_main_query())
+            return; // bail if this isn't the main query
 
         if($v = intval(self::get_per_page($q)))
         {
