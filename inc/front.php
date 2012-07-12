@@ -42,7 +42,7 @@ class CD_APPP_Front extends CD_APPP_Base
         if(!$q->is_main_query() || !is_archive())
             return; // bail if this isn't the main query or an archive page
 
-        if($v = intval(self::get_per_page()))
+        if($v = intval(self::get_per_page($q)))
         {
             if($v > 0)
             {
@@ -55,9 +55,8 @@ class CD_APPP_Front extends CD_APPP_Base
         }
     }
 
-    protected static function get_per_page()
+    protected static function get_per_page($q)
     {
-        $obj = get_queried_object();
         $rv = 0;
         if(is_day())
         {
@@ -73,6 +72,8 @@ class CD_APPP_Front extends CD_APPP_Base
         }
         elseif(is_author())
         {
+            // NOTE: can't use get_queried_object here
+            // alternative: get_user_by('slug', $q->get('author_name'))
             $rv = self::opt('author');
         }
         elseif(is_search())
@@ -81,10 +82,12 @@ class CD_APPP_Front extends CD_APPP_Base
         }
         elseif(is_post_type_archive())
         {
+            $obj = get_queried_object();
             $rv = self::opt(self::prefix_pt($obj->name));
         }
         elseif(is_category() || is_tag() || is_tax())
         {
+            $obj = get_queried_object();
             $rv = self::opt(self::prefix_tax($obj->taxonomy));
         }
         return $rv;
