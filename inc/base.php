@@ -129,6 +129,8 @@ class CD_APPP_Base
         $rv = array();
         foreach($taxes as $n => $t)
         {
+            if('post_format' == $n && !current_theme_supports('post-formats'))
+                continue;
             $rv[self::prefix_tax($n)] = $t->label;
         }
         return apply_filters('cd_appp_taxonomies', $rv);
