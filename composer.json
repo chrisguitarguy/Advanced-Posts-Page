@@ -1,0 +1,10 @@
+{
+    "name": "chrisguitarguy/advanced-posts-per-page",
+    "description": "Control posts per page for each post type from the admin area.",
+    "keywords": ["wordpress"],
+    "license": "MIT",
+    "type": "wordpress-plugin",
+    "require": {
+        "php": ">=5.3"
+    }
+}
